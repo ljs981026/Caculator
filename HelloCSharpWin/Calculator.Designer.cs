@@ -28,77 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            HelloLabel = new Label();
-            Sum1 = new TextBox();
-            Sum2 = new TextBox();
-            SumNumbers = new Button();
-            SumResult = new TextBox();
+            NumButton1 = new Button();
+            NumButton2 = new Button();
+            NumScreen = new Label();
+            NumPlus = new Button();
             SuspendLayout();
             // 
-            // HelloLabel
+            // NumButton1
             // 
-            HelloLabel.AutoSize = true;
-            HelloLabel.Cursor = Cursors.Hand;
-            HelloLabel.Location = new Point(39, 23);
-            HelloLabel.Name = "HelloLabel";
-            HelloLabel.Size = new Size(107, 15);
-            HelloLabel.TabIndex = 0;
-            HelloLabel.Text = "여기를 클릭하세요";
-            HelloLabel.Click += HelloLabel_Click;
+            NumButton1.Location = new Point(12, 81);
+            NumButton1.Name = "NumButton1";
+            NumButton1.Size = new Size(75, 68);
+            NumButton1.TabIndex = 0;
+            NumButton1.Text = "1";
+            NumButton1.UseVisualStyleBackColor = true;
+            NumButton1.Click += NumButton1_Click;
             // 
-            // Sum1
+            // NumButton2
             // 
-            Sum1.Location = new Point(39, 57);
-            Sum1.Name = "Sum1";
-            Sum1.Size = new Size(100, 23);
-            Sum1.TabIndex = 1;
+            NumButton2.Location = new Point(93, 81);
+            NumButton2.Name = "NumButton2";
+            NumButton2.Size = new Size(75, 68);
+            NumButton2.TabIndex = 1;
+            NumButton2.Text = "2";
+            NumButton2.UseVisualStyleBackColor = true;
+            NumButton2.Click += NumButton2_Click;
             // 
-            // Sum2
+            // NumScreen
             // 
-            Sum2.Location = new Point(158, 57);
-            Sum2.Name = "Sum2";
-            Sum2.Size = new Size(100, 23);
-            Sum2.TabIndex = 2;
+            NumScreen.BackColor = Color.White;
+            NumScreen.BorderStyle = BorderStyle.Fixed3D;
+            NumScreen.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            NumScreen.Location = new Point(12, 9);
+            NumScreen.Name = "NumScreen";
+            NumScreen.Size = new Size(474, 55);
+            NumScreen.TabIndex = 2;
+            NumScreen.Text = "0";
+            NumScreen.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // SumNumbers
+            // NumPlus
             // 
-            SumNumbers.Location = new Point(276, 57);
-            SumNumbers.Name = "SumNumbers";
-            SumNumbers.Size = new Size(75, 23);
-            SumNumbers.TabIndex = 3;
-            SumNumbers.Text = "=";
-            SumNumbers.UseVisualStyleBackColor = true;
-            SumNumbers.Click += SumNumbers_Click;
-            // 
-            // SumResult
-            // 
-            SumResult.Location = new Point(366, 57);
-            SumResult.Name = "SumResult";
-            SumResult.Size = new Size(100, 23);
-            SumResult.TabIndex = 4;
+            NumPlus.Location = new Point(411, 81);
+            NumPlus.Name = "NumPlus";
+            NumPlus.Size = new Size(75, 68);
+            NumPlus.TabIndex = 3;
+            NumPlus.Text = "+";
+            NumPlus.UseVisualStyleBackColor = true;
+            NumPlus.Click += NumPlus_Click;
             // 
             // Calculator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(531, 349);
-            Controls.Add(SumResult);
-            Controls.Add(SumNumbers);
-            Controls.Add(Sum2);
-            Controls.Add(Sum1);
-            Controls.Add(HelloLabel);
+            ClientSize = new Size(502, 349);
+            Controls.Add(NumPlus);
+            Controls.Add(NumScreen);
+            Controls.Add(NumButton2);
+            Controls.Add(NumButton1);
             Name = "Calculator";
             Text = "Form1";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label HelloLabel;
-        private TextBox Sum1;
-        private TextBox Sum2;
-        private Button SumNumbers;
-        private TextBox SumResult;
+        private Button NumButton1;
+        private Button NumButton2;
+        private Label NumScreen;
+        private Button NumPlus;
     }
 }

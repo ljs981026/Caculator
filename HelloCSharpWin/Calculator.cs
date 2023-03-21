@@ -3,50 +3,50 @@ namespace HelloCSharpWin
 {
     public partial class Calculator : Form
     {
+        // 값을 담을 Result 변수와 새로운 숫자 입력시 판별할 isNewNum 불변수 생성
+        public int Result = 0;
+        public bool isNewNum = true;
         public Calculator()
         {
             InitializeComponent();
         }
-
-        private void HelloLabel_Click(object sender, EventArgs e)
+        // 1 클릭 이벤트
+        private void NumButton1_Click(object sender, EventArgs e)
         {
-            int number1 = 1;
-            int number2 = 2;
-
-            int sum = number1 + number2;
-
-            HelloLabel.Text = sum.ToString();
+            SetNum(NumButton1.Text);           
         }
-
-        private void SumNumbers_Click(object sender, EventArgs e)
+        // 2 클릭 이벤트
+        private void NumButton2_Click(object sender, EventArgs e)
         {
-            int number1 = Convert.ToInt32(Sum1.Text);
-            int number2 = Convert.ToInt32(Sum2.Text);
-            int sum = number1 + number2;
-
-            SumResult.Text = Add(number1, number2).ToString()+", " +sum.ToString()+", "+Add2(number1, number2).ToString();
+            SetNum(NumButton2.Text);
         }
-        public int Add(int number1, int number2)
+        // if => isNewNum이 true이면 매개변수 num을 NumScreen에 출력하고 isNewNum을 false로 변경
+        // elseif => NumScreen에 출력 값이 0이면 num을 NumScreen에 출력 
+        // else => NumScreen 출력값에 num 추가
+        public void SetNum(string num)
         {
-            int sum = number1 + number2;
-            return sum;
+            if (isNewNum)
+            {
+                NumScreen.Text = num;
+                isNewNum = false;
+            }
+            else if (NumScreen.Text == "0")
+            {
+                NumScreen.Text = num;
+            }
+            else
+            {
+                NumScreen.Text += num;
+            }
         }
-
-        public float Add2(float number1, float number2)
+        // + 클릭 이벤트
+        // Result에 num값을 더해서 저장해주고 isNewNum을 true로 변경
+        private void NumPlus_Click(object sender, EventArgs e)
         {
-            float sum = number1 + number2;
-            return sum;
+            int num = int.Parse(NumScreen.Text);
+            Result += num;
+            NumScreen.Text = Result.ToString();
+            isNewNum = true;
         }
-
-        public int Sub(int number1, int number2)
-        {
-            int sub = number1 - number2;
-            return sub;
-        }
-
-        //public void Flush(Number1);
-        //public void Flush(Number2);
-        //public void Flush(Number1, Number2);
-        //public void Flush();
     }
 }
